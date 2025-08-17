@@ -75,3 +75,14 @@ app.listen(PORT, '0.0.0.0', async () => {
         console.log('❌ Impossibile connettersi al database');
     }
 });
+
+// Gestione graceful shutdown
+process.on('SIGTERM', () => {
+    console.log('🔄 Ricevuto SIGTERM, chiusura graceful...');
+    process.exit(0);
+});
+
+process.on('SIGINT', () => {
+    console.log('🔄 Ricevuto SIGINT, chiusura graceful...');
+    process.exit(0);
+});

@@ -63,16 +63,13 @@ app.use((req, res) => {
     res.status(404).json({ error: 'Endpoint non trovato' });
 });
 
-app.listen(PORT, async () => {
+app.listen(PORT, '0.0.0.0', async () => {
     console.log(`🚀 Server avviato su porta ${PORT}`);
-    console.log(`📡 API disponibile su http://localhost:${PORT}/api`);
+    console.log(`📡 API disponibile su http://0.0.0.0:${PORT}/api`);
     
-    // Test connessione database
     const dbConnected = await testConnection();
     if (dbConnected) {
         console.log('✅ Database PostgreSQL connesso');
-        
-        // Avvia scheduler per chiusura automatica aste
         avviaScheduler();
     } else {
         console.log('❌ Impossibile connettersi al database');

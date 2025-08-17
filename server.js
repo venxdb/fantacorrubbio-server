@@ -70,7 +70,7 @@ app.listen(PORT, '0.0.0.0', async () => {
     const dbConnected = await testConnection();
     if (dbConnected) {
         console.log('✅ Database PostgreSQL connesso');
-        avviaScheduler();
+        //avviaScheduler();
     } else {
         console.log('❌ Impossibile connettersi al database');
     }
